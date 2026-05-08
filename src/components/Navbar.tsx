@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, X, ShoppingCart } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo-seu-market.png";
 
 const links = [
   { href: "#solucoes", label: "Soluções" },
@@ -26,11 +27,8 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 font-display font-bold text-lg">
-          <span className="grid place-items-center size-9 rounded-xl bg-gradient-primary text-primary-foreground">
-            <ShoppingCart className="size-5" />
-          </span>
-          <span className="text-primary-dark">Seu Market <span className="text-primary">Br</span></span>
+        <a href="#top" className="flex items-center" aria-label="Seu Market Br - Início">
+          <img src={logo} alt="Seu Market Br" className="h-12 md:h-14 w-auto" width={1536} height={1024} />
         </a>
 
         <ul className="hidden md:flex items-center gap-8">
