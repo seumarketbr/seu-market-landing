@@ -4,7 +4,7 @@ import {
   CheckCircle2, Star, Box, ShoppingBasket, Leaf, Heart, Gem,
   Maximize2, Settings, Lightbulb, Sofa, Puzzle, Smile,
   CreditCard, Camera, KeyRound, BarChart3, Smartphone, Boxes,
-  MapPin, Mail, Instagram, Phone, ArrowRight, Zap, TrendingUp, Quote,
+  MapPin, Mail, Instagram as InstagramIcon, Phone, ArrowRight, Zap, TrendingUp, Quote,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -631,10 +631,10 @@ function Home_() {
                 </li>
                 <li className="flex items-start gap-4">
                   <span className="shrink-0 grid place-items-center size-11 rounded-xl bg-gradient-lime text-navy-deep shadow-lime">
-                    <Instagram className="size-5" />
+                    <InstagramIcon className="size-5" />
                   </span>
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-white/60">Instagram</p>
+                    <p className="text-xs uppercase tracking-wider text-white/60">InstagramIcon</p>
                     <p className="font-display font-bold text-lg">{INSTAGRAM}</p>
                   </div>
                 </li>
@@ -680,7 +680,7 @@ function Home_() {
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2"><Phone className="size-4 text-primary" /> {WHATSAPP_DISPLAY}</li>
               <li className="flex items-center gap-2"><Mail className="size-4 text-primary" /> {EMAIL}</li>
-              <li className="flex items-center gap-2"><Instagram className="size-4 text-primary" /> {INSTAGRAM}</li>
+              <li className="flex items-center gap-2"><InstagramIcon className="size-4 text-primary" /> {INSTAGRAM}</li>
               <li className="flex items-center gap-2"><MapPin className="size-4 text-primary" /> {LOCATION}</li>
             </ul>
           </div>
