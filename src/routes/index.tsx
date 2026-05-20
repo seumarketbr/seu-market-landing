@@ -419,7 +419,9 @@ function Home_() {
               <div className="absolute inset-0 bg-radial-lime opacity-60" aria-hidden />
               <div className="relative">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-lime text-navy-deep text-xs font-bold uppercase tracking-wider">Depois</span>
-                <h3 className="mt-4 font-display font-bold text-2xl">Seu Market Br</h3>
+                <div className="mt-4 bg-white/95 rounded-2xl px-4 py-3 inline-block shadow-card">
+                  <img src={logo} alt="Seu Market Br" className="h-12 w-auto" />
+                </div>
                 <p className="mt-2 text-white/80 leading-relaxed">
                   Praticidade, conveniência e valorização para todos os moradores.
                   Um espaço moderno que entrega valor real ao condomínio.
