@@ -23,7 +23,7 @@ export function WhatsAppButton({ children, variant = "primary", size = "md", cla
   return (
     <a
       href={WHATSAPP_URL}
-      target="_blank"
+      target="_top"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
       className={`${base} ${variants[variant]} ${sizes[size]} ${className}`}
