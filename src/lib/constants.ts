@@ -6,6 +6,4 @@ export const INSTAGRAM = "@seumarket.br";
 export const LOCATION = "Belém — Pará";
 export const WHATSAPP_MESSAGE =
   "Olá! Gostaria de saber mais sobre o Seu Market Br para o meu condomínio.";
-export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  WHATSAPP_MESSAGE,
-)}`;
+export const WHATSAPP_URL = "https://w.app/mjxyqt";
