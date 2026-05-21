@@ -51,7 +51,7 @@ export function Navbar() {
         <div className="hidden lg:flex items-center gap-3">
           <a
             href={WHATSAPP_URL}
-            target="_blank"
+            target="_top"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold shadow-lime hover:-translate-y-0.5 transition-transform"
           >
@@ -85,7 +85,7 @@ export function Navbar() {
             <li className="pt-2">
               <a
                 href={WHATSAPP_URL}
-                target="_blank"
+                target="_top"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-primary text-primary-foreground font-semibold"
               >
