@@ -4,7 +4,7 @@ import {
   CheckCircle2, Star, Box, ShoppingBasket, Leaf, Heart, Gem,
   Maximize2, Settings, Lightbulb, Sofa, Puzzle, Smile,
   CreditCard, Camera, KeyRound, BarChart3, Smartphone, Boxes,
-  MapPin, Mail, AtSign, Phone, ArrowRight, Zap, TrendingUp, Quote,
+  MapPin, Mail, AtSign, Phone, ArrowRight, Zap, TrendingUp, Quote,   Globe, Music,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -16,7 +16,7 @@ import wallImg from "@/assets/model-wall.jpg";
 import smartImg from "@/assets/model-smart.jpg";
 import primeImg from "@/assets/model-prime.jpg";
 import logo from "@/assets/logo-seu-market.png";
-import { WHATSAPP_DISPLAY, EMAIL, INSTAGRAM, LOCATION } from "@/lib/constants";
+import { WHATSAPP_DISPLAY, EMAIL, INSTAGRAM, LOCATION, INSTAGRAM_URL, TIKTOK_URL, PINTEREST_URL, WEBSITE_URL } from "@/lib/constants";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -686,6 +686,16 @@ function Home_() {
               <li className="flex items-center gap-2"><MapPin className="size-4 text-primary" /> {LOCATION}</li>
             </ul>
           </div>
+        </div>
+
+                <div>
+          <p className="text-white font-display font-bold mb-4">Redes Sociais</p>
+          <ul className="space-y-2 text-sm">
+            <li className="flex items-center gap-2"><Globe className="size-4 text-primary" /> <a href={WEBSITE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr.com.br</a></li>
+            <li className="flex items-center gap-2"><Heart className="size-4 text-primary" /> <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">@seumarket.br</a></li>
+            <li className="flex items-center gap-2"><Music className="size-4 text-primary" /> <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">@seumarketbr</a></li>
+            <li className="flex items-center gap-2"><Heart className="size-4 text-primary" /> <a href={PINTEREST_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr</a></li>
+          </ul>
         </div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
           <p>© {new Date().getFullYear()} Seu Market Br. Todos os direitos reservados.</p>
