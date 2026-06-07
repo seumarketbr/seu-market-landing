@@ -13,3 +13,5 @@ export const INSTAGRAM_URL = "https://www.instagram.com/seumarket.br/";
 export const TIKTOK_URL = "https://www.tiktok.com/@seumarketbr";
 export const PINTEREST_URL = "https://www.pinterest.com/seumarketbr/";
 export const WEBSITE_URL = "https://www.seumarketbr.com.br/";
+export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61589238586713";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/seumarketbr";
