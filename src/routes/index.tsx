@@ -4,7 +4,7 @@ import {
   CheckCircle2, Star, Box, ShoppingBasket, Leaf, Heart, Gem,
   Maximize2, Settings, Lightbulb, Sofa, Puzzle, Smile,
   CreditCard, Camera, KeyRound, BarChart3, Smartphone, Boxes,
-  MapPin, Mail, AtSign, Phone, ArrowRight, Zap, TrendingUp, Quote,   Globe, Music,
+  MapPin, Mail, AtSign, Phone, ArrowRight, Zap, TrendingUp, Quote,   Globe, Music, Bookmark,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -692,9 +692,9 @@ function Home_() {
           <p className="text-white font-display font-bold mb-4">Redes Sociais</p>
           <ul className="space-y-2 text-sm">
             <li className="flex items-center gap-2"><Globe className="size-4 text-primary" /> <a href={WEBSITE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr.com.br</a></li>
-            <li className="flex items-center gap-2"><Heart className="size-4 text-primary" /> <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">@seumarket.br</a></li>
+            <li className="flex items-center gap-2"><Camera className="size-4 text-primary" /> <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">@seumarket.br</a></li>
             <li className="flex items-center gap-2"><Music className="size-4 text-primary" /> <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">@seumarketbr</a></li>
-            <li className="flex items-center gap-2"><Heart className="size-4 text-primary" /> <a href={PINTEREST_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr</a></li>
+            <li className="flex items-center gap-2"><Bookmark className="size-4 text-primary" /> <a href={PINTEREST_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr</a></li>
           </ul>
         </div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
