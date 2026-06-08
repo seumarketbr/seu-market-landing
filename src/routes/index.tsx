@@ -668,6 +668,7 @@ function Home_() {
           </div>
           <div>
             <p className="text-white font-display font-bold mb-4">Mapa do Site</p>
+            <ul className="space-y-2 text-sm">
               <li><a className="hover:text-primary transition-colors" href="#sobre">Quem somos</a></li>
               <li><a className="hover:text-primary transition-colors" href="#modelos">Modelos</a></li>
               <li><a className="hover:text-primary transition-colors" href="#beneficios">Benefícios</a></li>
