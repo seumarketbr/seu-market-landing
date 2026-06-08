@@ -667,7 +667,6 @@ function Home_() {
             </p>
           </div>
           <div>
-LINKEDIN_URL            <ul className="space-y-2 text-sm">
               <li><a className="hover:text-primary transition-colors" href="#sobre">Quem somos</a></li>
               <li><a className="hover:text-primary transition-colors" href="#modelos">Modelos</a></li>
               <li><a className="hover:text-primary transition-colors" href="#beneficios">Benefícios</a></li>
