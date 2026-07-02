@@ -1,11 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  Clock, ShieldCheck, Sparkles, Home, Building2, Users, Briefcase,
+  Clock, ShieldCheck, Sparkles, Home, Building2, Globe, Users, Briefcase,
   CheckCircle2, Star, Box, ShoppingBasket, Leaf, Heart, Gem,
   Maximize2, Settings, Lightbulb, Sofa, Puzzle, Smile,
-  CreditCard, Camera, KeyRound, BarChart3, Smartphone, Boxes,
-  MapPin, Mail, AtSign, Phone, ArrowRight, Zap, TrendingUp, Quote,   Globe, Music, Bookmark,
+  CreditCard, KeyRound, BarChart3, Smartphone, Boxes, Video,
+  MapPin, Mail, Phone, ArrowRight, Zap, TrendingUp, Quote,
 } from "lucide-react";
+import {
+  InstagramIcon, TikTokIcon, FacebookIcon, YouTubeIcon, PinterestIcon, LinkedInIcon,
+} from "@/components/SocialIcons";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
@@ -20,7 +23,7 @@ import before1 from "@/assets/before-1.jpg";
 import before2 from "@/assets/before-2.jpg";
 import after1 from "@/assets/after-1.jpg";
 import after2 from "@/assets/after-2.jpg";
-import { WHATSAPP_DISPLAY, EMAIL, INSTAGRAM, LOCATION, INSTAGRAM_URL, TIKTOK_URL, PINTEREST_URL, WEBSITE_URL, LINKEDIN_URL } from "@/lib/constants";
+import { WHATSAPP_DISPLAY, EMAIL, INSTAGRAM, LOCATION, INSTAGRAM_URL, TIKTOK_URL, PINTEREST_URL, WEBSITE_URL, FACEBOOK_URL, LINKEDIN_URL } from "@/lib/constants";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -82,7 +85,7 @@ const benefits = [
 ];
 
 const tech = [
-  { icon: Camera, t: "Segurança 24h", d: "Câmeras com gravação contínua para total tranquilidade." },
+  { icon: Video, t: "Segurança 24h", d: "Câmeras com gravação contínua para total tranquilidade." },
   { icon: KeyRound, t: "Controle de acesso", d: "Acesso autorizado por moradores e liberado pela gestão." },
   { icon: CreditCard, t: "Pagamento digital", d: "Cartão de crédito, débito e PIX, de forma rápida e segura." },
   { icon: BarChart3, t: "Gestão inteligente", d: "Relatórios e indicadores em tempo real para decisões assertivas." },
@@ -640,7 +643,7 @@ function Home_() {
                 </li>
                 <li className="flex items-start gap-4">
                   <span className="shrink-0 grid place-items-center size-11 rounded-xl bg-gradient-lime text-navy-deep shadow-lime">
-                    <AtSign className="size-5" />
+                    <InstagramIcon className="size-5" />
                   </span>
                   <div>
                     <p className="text-xs uppercase tracking-wider text-white/60">Instagram</p>
@@ -689,7 +692,7 @@ function Home_() {
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2"><Phone className="size-4 text-primary" /> {WHATSAPP_DISPLAY}</li>
               <li className="flex items-center gap-2"><Mail className="size-4 text-primary" /> {EMAIL}</li>
-              <li className="flex items-center gap-2"><AtSign className="size-4 text-primary" /> {INSTAGRAM}</li>
+              <li className="flex items-center gap-2"><InstagramIcon className="size-4 text-primary" /> {INSTAGRAM}</li>
               <li className="flex items-center gap-2"><MapPin className="size-4 text-primary" /> {LOCATION}</li>
             </ul>
           </div>
@@ -697,9 +700,12 @@ function Home_() {
           <p className="text-white font-display font-bold mb-4">Redes Sociais</p>
           <ul className="space-y-2 text-sm">
             <li className="flex items-center gap-2"><Globe className="size-4 text-primary" /> <a href={WEBSITE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr.com.br</a></li>
-            <li className="flex items-center gap-2"><Camera className="size-4 text-primary" /> <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">@seumarket.br</a></li>
-            <li className="flex items-center gap-2"><Music className="size-4 text-primary" /> <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">@seumarketbr</a></li>
-            <li className="flex items-center gap-2"><Bookmark className="size-4 text-primary" /> <a href={PINTEREST_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr</a></li>
+            <li className="flex items-center gap-2"><InstagramIcon className="size-4 text-primary" /> <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">@seumarket.br</a></li>
+            <li className="flex items-center gap-2"><TikTokIcon className="size-4 text-primary" /> <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">@seumarketbr</a></li>
+            <li className="flex items-center gap-2"><FacebookIcon className="size-4 text-primary" /> <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr</a></li>
+            <li className="flex items-center gap-2"><YouTubeIcon className="size-4 text-primary" /> <a href="https://www.youtube.com/@seumarketbr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr</a></li>
+            <li className="flex items-center gap-2"><LinkedInIcon className="size-4 text-primary" /> <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr</a></li>
+            <li className="flex items-center gap-2"><PinterestIcon className="size-4 text-primary" /> <a href={PINTEREST_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr</a></li>
                           <li className="flex items-center gap-2"><Users className="size-4 text-primary" /> <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr</a></li>
           </ul>
         </div>
