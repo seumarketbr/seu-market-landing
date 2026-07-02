@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  Clock, ShieldCheck, Sparkles, Home, Building2, Users, Briefcase,
+  Clock, ShieldCheck, Sparkles, Home, Building2, Globe, Users, Briefcase,
   CheckCircle2, Star, Box, ShoppingBasket, Leaf, Heart, Gem,
   Maximize2, Settings, Lightbulb, Sofa, Puzzle, Smile,
   CreditCard, KeyRound, BarChart3, Smartphone, Boxes, Video,
