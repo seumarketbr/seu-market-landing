@@ -23,7 +23,7 @@ import before1 from "@/assets/before-1.jpg";
 import before2 from "@/assets/before-2.jpg";
 import after1 from "@/assets/after-1.jpg";
 import after2 from "@/assets/after-2.jpg";
-import { WHATSAPP_DISPLAY, EMAIL, INSTAGRAM, LOCATION, INSTAGRAM_URL, TIKTOK_URL, PINTEREST_URL, WEBSITE_URL, LINKEDIN_URL } from "@/lib/constants";
+import { WHATSAPP_DISPLAY, EMAIL, INSTAGRAM, LOCATION, INSTAGRAM_URL, TIKTOK_URL, PINTEREST_URL, WEBSITE_URL, FACEBOOK_URL, LINKEDIN_URL } from "@/lib/constants";
 
 export const Route = createFileRoute("/")({
   head: () => ({
