@@ -429,6 +429,10 @@ function Home_() {
                   Praticidade, conveniência e valorização para todos os moradores.
                   Um espaço moderno que entrega valor real ao condomínio.
                 </p>
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  <img src={after1} alt="Minimercado Seu Market Br instalado em condomínio" loading="lazy" width={800} height={600} className="aspect-[4/3] w-full rounded-xl object-cover ring-1 ring-white/20" />
+                  <img src={after2} alt="Espaço transformado com Seu Market Br" loading="lazy" width={800} height={600} className="aspect-[4/3] w-full rounded-xl object-cover ring-1 ring-white/20" />
+                </div>
                 <ul className="mt-8 space-y-3">
                   {[
                     "Mais comodidade no dia a dia",
