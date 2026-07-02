@@ -3,7 +3,7 @@ import {
   Clock, ShieldCheck, Sparkles, Home, Building2, Users, Briefcase,
   CheckCircle2, Star, Box, ShoppingBasket, Leaf, Heart, Gem,
   Maximize2, Settings, Lightbulb, Sofa, Puzzle, Smile,
-  CreditCard, KeyRound, BarChart3, Smartphone, Boxes,
+  CreditCard, KeyRound, BarChart3, Smartphone, Boxes, Video,
   MapPin, Mail, Phone, ArrowRight, Zap, TrendingUp, Quote,
 } from "lucide-react";
 import {
@@ -85,7 +85,7 @@ const benefits = [
 ];
 
 const tech = [
-  { icon: Camera, t: "Segurança 24h", d: "Câmeras com gravação contínua para total tranquilidade." },
+  { icon: Video, t: "Segurança 24h", d: "Câmeras com gravação contínua para total tranquilidade." },
   { icon: KeyRound, t: "Controle de acesso", d: "Acesso autorizado por moradores e liberado pela gestão." },
   { icon: CreditCard, t: "Pagamento digital", d: "Cartão de crédito, débito e PIX, de forma rápida e segura." },
   { icon: BarChart3, t: "Gestão inteligente", d: "Relatórios e indicadores em tempo real para decisões assertivas." },
@@ -643,7 +643,7 @@ function Home_() {
                 </li>
                 <li className="flex items-start gap-4">
                   <span className="shrink-0 grid place-items-center size-11 rounded-xl bg-gradient-lime text-navy-deep shadow-lime">
-                    <AtSign className="size-5" />
+                    <InstagramIcon className="size-5" />
                   </span>
                   <div>
                     <p className="text-xs uppercase tracking-wider text-white/60">Instagram</p>
