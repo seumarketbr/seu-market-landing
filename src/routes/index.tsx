@@ -3,9 +3,12 @@ import {
   Clock, ShieldCheck, Sparkles, Home, Building2, Users, Briefcase,
   CheckCircle2, Star, Box, ShoppingBasket, Leaf, Heart, Gem,
   Maximize2, Settings, Lightbulb, Sofa, Puzzle, Smile,
-  CreditCard, Camera, KeyRound, BarChart3, Smartphone, Boxes,
-  MapPin, Mail, AtSign, Phone, ArrowRight, Zap, TrendingUp, Quote,   Globe, Music, Bookmark,
+  CreditCard, KeyRound, BarChart3, Smartphone, Boxes,
+  MapPin, Mail, Phone, ArrowRight, Zap, TrendingUp, Quote,
 } from "lucide-react";
+import {
+  InstagramIcon, TikTokIcon, FacebookIcon, YouTubeIcon, PinterestIcon, LinkedInIcon,
+} from "@/components/SocialIcons";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
