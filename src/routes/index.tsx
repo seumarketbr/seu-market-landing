@@ -16,6 +16,10 @@ import wallImg from "@/assets/model-wall.jpg";
 import smartImg from "@/assets/model-smart.jpg";
 import primeImg from "@/assets/model-prime.jpg";
 import logo from "@/assets/logo-seu-market.png";
+import before1 from "@/assets/before-1.jpg";
+import before2 from "@/assets/before-2.jpg";
+import after1 from "@/assets/after-1.jpg";
+import after2 from "@/assets/after-2.jpg";
 import { WHATSAPP_DISPLAY, EMAIL, INSTAGRAM, LOCATION, INSTAGRAM_URL, TIKTOK_URL, PINTEREST_URL, WEBSITE_URL, LINKEDIN_URL } from "@/lib/constants";
 
 export const Route = createFileRoute("/")({
@@ -408,10 +412,9 @@ function Home_() {
                 Sem utilização e sem retorno para o condomínio. Uma área subaproveitada
                 que poderia entregar muito mais valor para os moradores.
               </p>
-              <div className="mt-8 grid grid-cols-6 gap-2 opacity-40">
-                {Array.from({ length: 18 }).map((_, i) => (
-                  <div key={i} className="aspect-square rounded bg-foreground/10" />
-                ))}
+              <div className="mt-8 grid grid-cols-2 gap-3">
+                <img src={before1} alt="Espaço vazio em condomínio" loading="lazy" width={800} height={600} className="aspect-[4/3] w-full rounded-xl object-cover grayscale opacity-80" />
+                <img src={before2} alt="Corredor sem utilização em condomínio" loading="lazy" width={800} height={600} className="aspect-[4/3] w-full rounded-xl object-cover grayscale opacity-80" />
               </div>
             </div>
 
@@ -426,6 +429,10 @@ function Home_() {
                   Praticidade, conveniência e valorização para todos os moradores.
                   Um espaço moderno que entrega valor real ao condomínio.
                 </p>
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  <img src={after1} alt="Minimercado Seu Market Br instalado em condomínio" loading="lazy" width={800} height={600} className="aspect-[4/3] w-full rounded-xl object-cover ring-1 ring-white/20" />
+                  <img src={after2} alt="Espaço transformado com Seu Market Br" loading="lazy" width={800} height={600} className="aspect-[4/3] w-full rounded-xl object-cover ring-1 ring-white/20" />
+                </div>
                 <ul className="mt-8 space-y-3">
                   {[
                     "Mais comodidade no dia a dia",
