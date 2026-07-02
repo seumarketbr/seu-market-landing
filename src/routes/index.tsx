@@ -692,7 +692,7 @@ function Home_() {
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2"><Phone className="size-4 text-primary" /> {WHATSAPP_DISPLAY}</li>
               <li className="flex items-center gap-2"><Mail className="size-4 text-primary" /> {EMAIL}</li>
-              <li className="flex items-center gap-2"><AtSign className="size-4 text-primary" /> {INSTAGRAM}</li>
+              <li className="flex items-center gap-2"><InstagramIcon className="size-4 text-primary" /> {INSTAGRAM}</li>
               <li className="flex items-center gap-2"><MapPin className="size-4 text-primary" /> {LOCATION}</li>
             </ul>
           </div>
@@ -700,9 +700,12 @@ function Home_() {
           <p className="text-white font-display font-bold mb-4">Redes Sociais</p>
           <ul className="space-y-2 text-sm">
             <li className="flex items-center gap-2"><Globe className="size-4 text-primary" /> <a href={WEBSITE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr.com.br</a></li>
-            <li className="flex items-center gap-2"><Camera className="size-4 text-primary" /> <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">@seumarket.br</a></li>
-            <li className="flex items-center gap-2"><Music className="size-4 text-primary" /> <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">@seumarketbr</a></li>
-            <li className="flex items-center gap-2"><Bookmark className="size-4 text-primary" /> <a href={PINTEREST_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr</a></li>
+            <li className="flex items-center gap-2"><InstagramIcon className="size-4 text-primary" /> <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">@seumarket.br</a></li>
+            <li className="flex items-center gap-2"><TikTokIcon className="size-4 text-primary" /> <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">@seumarketbr</a></li>
+            <li className="flex items-center gap-2"><FacebookIcon className="size-4 text-primary" /> <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr</a></li>
+            <li className="flex items-center gap-2"><YouTubeIcon className="size-4 text-primary" /> <a href="https://www.youtube.com/@seumarketbr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr</a></li>
+            <li className="flex items-center gap-2"><LinkedInIcon className="size-4 text-primary" /> <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr</a></li>
+            <li className="flex items-center gap-2"><PinterestIcon className="size-4 text-primary" /> <a href={PINTEREST_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr</a></li>
                           <li className="flex items-center gap-2"><Users className="size-4 text-primary" /> <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">seumarketbr</a></li>
           </ul>
         </div>
