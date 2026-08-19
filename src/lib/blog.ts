@@ -13,33 +13,36 @@ export interface BlogPost {
   tags: string[];
 }
 
-export async function fetchPostSlugs(): Promise<string[]> {
+export async function fetchAllPosts(): Promise<BlogPost[]> {
   try {
     const res = await fetch("/blog-posts/manifest.json");
     if (!res.ok) return [];
-    return await res.json();
+    const data = await res.json();
+
+    // Suporta manifest como array de objetos OU array de slugs (strings)
+    const posts: BlogPost[] = await Promise.all(
+      data.map(async (item: BlogPost | string) => {
+        if (typeof item === "string") {
+          // manifest é array de slugs → busca o JSON individual
+          try {
+            const r = await fetch(`/blog-posts/${item}.json`);
+            if (!r.ok) return null;
+            return (await r.json()) as BlogPost;
+          } catch {
+            return null;
+          }
+        }
+        // manifest já é array de objetos completos
+        return item as BlogPost;
+      })
+    );
+
+    return posts
+      .filter((p): p is BlogPost => p !== null)
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   } catch {
     return [];
   }
-}
-
-export async function fetchAllPosts(): Promise<BlogPost[]> {
-  const slugs = await fetchPostSlugs();
-  if (!slugs.length) return [];
-  const posts = await Promise.all(
-    slugs.map(async (slug) => {
-      try {
-        const res = await fetch(`/blog-posts/${slug}.json`);
-        if (!res.ok) return null;
-        return (await res.json()) as BlogPost;
-      } catch {
-        return null;
-      }
-    })
-  );
-  return posts
-    .filter((p): p is BlogPost => p !== null)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export async function fetchPostBySlug(slug: string): Promise<BlogPost | null> {
