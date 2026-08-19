@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { Menu, X, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo-seu-market.png";
 import { WHATSAPP_URL } from "@/lib/constants";
@@ -16,8 +16,6 @@ const anchorLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const routerState = useRouterState();
-  const isBlogPage = routerState.location.pathname.startsWith("/blog");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -26,51 +24,40 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isScrolledOrBlog = scrolled || isBlogPage;
-  const textColor = isScrolledOrBlog
+  const textColor = scrolled
     ? "text-foreground/80 hover:text-primary-dark"
     : "text-white/80 hover:text-primary";
 
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        isScrolledOrBlog
+        scrolled
           ? "bg-background/90 backdrop-blur-md shadow-card border-b border-border"
           : "bg-transparent"
       }`}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between">
-        <Link to="/" className="flex items-center" aria-label="Seu Market Br - Início">
-          <div className={`rounded-xl transition-all ${isScrolledOrBlog ? "" : "bg-white/95 px-3 py-1.5 shadow-card"}`}>
+        <a href="/" className="flex items-center" aria-label="Seu Market Br - Início">
+          <div className={`rounded-xl transition-all ${scrolled ? "" : "bg-white/95 px-3 py-1.5 shadow-card"}`}>
             <img src={logo} alt="Seu Market Br" className="h-10 md:h-11 w-auto" />
           </div>
-        </Link>
+        </a>
 
         <ul className="hidden lg:flex items-center gap-7">
           {anchorLinks.map((l) => (
             <li key={l.href}>
-              {isBlogPage ? (
-                <a
-                  href={`/${l.href}`}
-                  className={`text-sm font-medium transition-colors ${textColor}`}
-                >
-                  {l.label}
-                </a>
-              ) : (
-                <a
-                  href={l.href}
-                  className={`text-sm font-medium transition-colors ${textColor}`}
-                >
-                  {l.label}
-                </a>
-              )}
+              <a
+                href={l.href}
+                className={`text-sm font-medium transition-colors ${textColor}`}
+              >
+                {l.label}
+              </a>
             </li>
           ))}
           <li>
             <Link
               to="/blog"
               className={`text-sm font-medium transition-colors ${textColor}`}
-              activeProps={{ className: "text-primary font-semibold" }}
             >
               Blog
             </Link>
@@ -90,7 +77,7 @@ export function Navbar() {
 
         <button
           aria-label="Abrir menu"
-          className={`lg:hidden p-2 rounded-lg ${isScrolledOrBlog ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"}`}
+          className={`lg:hidden p-2 rounded-lg ${scrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"}`}
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="size-6" /> : <Menu className="size-6" />}
@@ -103,7 +90,7 @@ export function Navbar() {
             {anchorLinks.map((l) => (
               <li key={l.href}>
                 <a
-                  href={isBlogPage ? `/${l.href}` : l.href}
+                  href={l.href}
                   onClick={() => setOpen(false)}
                   className="block py-3 px-2 text-base font-medium hover:text-primary-dark"
                 >
