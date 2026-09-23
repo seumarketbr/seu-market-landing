@@ -10,28 +10,125 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function renderMarkdown(md: string): string {
-  return md
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(
-      /^## (.+)$/gm,
-      '<h2 class="font-display font-bold text-2xl md:text-3xl text-primary-dark mt-10 mb-4">$1</h2>'
-    )
-    .replace(
-      /\*\*(.+?)\*\*/g,
-      '<strong class="font-bold text-primary-dark">$1</strong>'
-    )
-    .replace(
-      /\\[([^\\]]+)\]\\(([^)]+)\\)/g,
-      '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors">$1</a>'
-    )
-    .replace(
-      /\n\n/g,
-      '</p><p class="mt-5 text-foreground/80 leading-relaxed text-lg">'
-    )
-    .replace(/^/, '<p class="mt-5 text-foreground/80 leading-relaxed text-lg">')
-    .replace(/$/, "</p>");
+  // Processa linha a linha para melhor controle
+  const lines = md.split("\n");
+  const result: string[] = [];
+  let inUl = false;
+  let inOl = false;
+  let paragraphBuffer: string[] = [];
+
+  function flushParagraph() {
+    if (paragraphBuffer.length > 0) {
+      const text = paragraphBuffer.join(" ").trim();
+      if (text) {
+        result.push(
+          `<p class="mt-5 text-foreground/80 leading-relaxed text-lg">${applyInline(text)}</p>`
+        );
+      }
+      paragraphBuffer = [];
+    }
+  }
+
+  function closeUl() {
+    if (inUl) {
+      result.push("</ul>");
+      inUl = false;
+    }
+  }
+
+  function closeOl() {
+    if (inOl) {
+      result.push("</ol>");
+      inOl = false;
+    }
+  }
+
+  function applyInline(text: string): string {
+    return text
+      // Bold
+      .replace(/\*\*(.+?)\*\*/g, '<strong class="font-bold text-primary-dark">$1</strong>')
+      // Italic
+      .replace(/\*(.+?)\*/g, "<em>$1</em>")
+      // Links — regex correta: [texto](url)
+      .replace(
+        /\[([^\]]+)\]\(([^)]+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors">$1</a>'
+      );
+  }
+
+  for (const raw of lines) {
+    const line = raw;
+
+    // Heading H2
+    if (/^## /.test(line)) {
+      flushParagraph();
+      closeUl();
+      closeOl();
+      const text = line.replace(/^## /, "");
+      result.push(
+        `<h2 class="font-display font-bold text-2xl md:text-3xl text-primary-dark mt-10 mb-4">${applyInline(text)}</h2>`
+      );
+      continue;
+    }
+
+    // Heading H3
+    if (/^### /.test(line)) {
+      flushParagraph();
+      closeUl();
+      closeOl();
+      const text = line.replace(/^### /, "");
+      result.push(
+        `<h3 class="font-display font-bold text-xl text-primary-dark mt-8 mb-3">${applyInline(text)}</h3>`
+      );
+      continue;
+    }
+
+    // Lista não-ordenada
+    if (/^[-*] /.test(line)) {
+      flushParagraph();
+      closeOl();
+      if (!inUl) {
+        result.push('<ul class="mt-4 space-y-2 list-disc list-inside text-foreground/80 text-lg">');
+        inUl = true;
+      }
+      const text = line.replace(/^[-*] /, "");
+      result.push(`<li>${applyInline(text)}</li>`);
+      continue;
+    }
+
+    // Lista ordenada
+    if (/^\d+\. /.test(line)) {
+      flushParagraph();
+      closeUl();
+      if (!inOl) {
+        result.push('<ol class="mt-4 space-y-2 list-decimal list-inside text-foreground/80 text-lg">');
+        inOl = true;
+      }
+      const text = line.replace(/^\d+\. /, "");
+      result.push(`<li>${applyInline(text)}</li>`);
+      continue;
+    }
+
+    // Linha vazia — fecha listas e flush parágrafo
+    if (line.trim() === "") {
+      closeUl();
+      closeOl();
+      flushParagraph();
+      continue;
+    }
+
+    // Linha normal — acumula no parágrafo
+    closeUl();
+    closeOl();
+    paragraphBuffer.push(line);
+  }
+
+  // Flush final
+  closeUl();
+  closeOl();
+  flushParagraph();
+
+  return result.join("\n");
 }
 
 function BlogPostPage() {
