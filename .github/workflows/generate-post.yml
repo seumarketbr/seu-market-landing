@@ -11,6 +11,11 @@ on:
         description: 'Motivo da geração manual'
         required: false
         default: 'Teste manual'
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/generate-post.yml'
 
 jobs:
   gerar-post:
@@ -56,3 +61,8 @@ jobs:
             echo "⚠️ Aviso: resposta inesperada do Cloudflare. Status: $HTTP_STATUS"
             echo "Verifique se o secret CLOUDFLARE_DEPLOY_HOOK está configurado corretamente."
           fi
+
+---
+# Workflow auxiliar de keepalive (evita pausa automática do GitHub)
+# O GitHub pausa workflows cron após ~60 dias sem atividade no repositório.
+# Este workflow faz um commit semanal para manter o repositório ativo.
