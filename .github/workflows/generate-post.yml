@@ -44,3 +44,15 @@ jobs:
           git add public/blog-posts/
           git diff --cached --quiet || git commit -m "blog: novo post automático $(date +'%Y-%m-%d %H:%M UTC')"
           git push
+
+      - name: Disparar deploy no Cloudflare
+        if: success()
+        run: |
+          echo "Disparando deploy no Cloudflare Workers..."
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -X POST "${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}")
+          if [ "$HTTP_STATUS" = "200" ] || [ "$HTTP_STATUS" = "201" ]; then
+            echo "✅ Deploy disparado com sucesso! Status: $HTTP_STATUS"
+          else
+            echo "⚠️ Aviso: resposta inesperada do Cloudflare. Status: $HTTP_STATUS"
+            echo "Verifique se o secret CLOUDFLARE_DEPLOY_HOOK está configurado corretamente."
+          fi
